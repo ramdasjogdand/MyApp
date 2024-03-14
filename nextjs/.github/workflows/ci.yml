@@ -1,0 +1,57 @@
+name: Next.js CI
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+
+
+    - name: Lint
+      run: npm run lint
+
+    - name: Test
+      run: npm run test
+
+    - name: Install ESLint and Prettier
+      run: |
+        npm install eslint@latest --save-dev
+        npm install prettier eslint-config-prettier eslint-plugin-prettier --save-dev
+
+          
+    - name: Run ESLint
+      run: npm run lint
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Add necessary steps to build and push the Next.js application Docker image
+
+      - name: Deploy to Staging
+        uses: easingthemes/ssh-deploy@v2.1.2
+        with:
+          server_ip: ${{ secrets.STAGING_SERVER_IP }}
+          server_port: ${{ secrets.STAGING_SERVER_PORT }}
+          username: ${{ secrets.STAGING_SERVER_USERNAME }}
+          password: ${{ secrets.STAGING_SERVER_PASSWORD }}
+          local_path: ./nextjs
+          remote_path: /var/www/nextjs    
+

@@ -1,0 +1,5 @@
+linters-settings:
+  golint:
+    enabled: true
+  gofmt:
+    enabled: true
