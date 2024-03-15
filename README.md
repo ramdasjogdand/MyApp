@@ -13,7 +13,7 @@ MyApp is a web application consisting of independent components developed in Go,
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/myapp.git
+    git clone https://github.com/ramdasjogdand/myapp.git
     cd myapp
     ```
 
