@@ -2,19 +2,19 @@ version: '3.8'
 
 services:
   go:
-    image: myapp-go:latest
+    image: ramdas1999/myapp-go:latest
     container_name: go_app
     ports:
       - "8080:8080"
 
   nextjs:
-    image: myapp-nextjs:latest
+    image: ramdas1999/myapp-nextjs:latest
     container_name: nextjs_app
     ports:
       - "3000:3000"
 
   wordpress:
-    image: myapp-wordpress:latest
+    image: ramdas1999/myapp-wordpress:latest
     container_name: wordpress_app
     ports:
       - "80:80"
