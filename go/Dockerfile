@@ -1,20 +1,16 @@
 # Start from the official Golang image
 FROM golang:1.17-alpine as builder
+FROM golang:1.16-alpine
 
-WORKDIR /app
+WORKDIR /project/go-docker/
 
-COPY go.mod go.sum ./
-
+# COPY go.mod, go.sum and download the dependencies
+COPY go.* ./
 RUN go mod download
 
+# COPY All things inside the project and build
 COPY . .
+RUN go build -o /project/go-docker/build/myapp .
 
-RUN go build -o myapp .
-
-FROM alpine:latest  
-
-WORKDIR /root/
-
-COPY --from=builder /app/myapp .
-
-CMD ["./myapp"]
+EXPOSE 8080
+ENTRYPOINT [ "/project/go-docker/build/myapp" ]

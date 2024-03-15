@@ -1,34 +1,23 @@
-# Start from the official Node.js image with TypeScript support
-FROM node:14-alpine as builder
+# Use the official Node.js 16 image as the base image
+FROM node:16
 
-# Set the working directory
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY package.json package-lock.json ./
+# Copy package.json and package-lock.json (or yarn.lock) to the container
+COPY package*.json ./
 
-# Install dependencies
+# Install project dependencies
 RUN npm install
 
-# Copy the rest of the application
+# Copy the rest of the application code to the container
 COPY . .
 
-# Build the Next.js application
+# Build the React app
 RUN npm run build
 
-# Start a new stage from scratch
-FROM node:14-alpine
-
-# Set the working directory
-WORKDIR /app
-
-# Copy the built application from the previous stage
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/node_modules ./node_modules
-
-# Expose the port
+# Expose the port that the app will run on (usually 3000 by default)
 EXPOSE 3000
 
-# Command to run the application
-CMD ["npm", "start"]
+# Start the React app when the container starts
+CMD [ "npm", "start" ]
