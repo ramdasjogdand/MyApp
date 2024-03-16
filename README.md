@@ -1,6 +1,6 @@
 # MyApp
 
-MyApp is a web application consisting of independent components developed in Go, Next.js (TypeScript), and WordPress. This repository contains the source code for each component and instructions for setting up and running the application locally.
+This repository contains the source code for each component and instructions for setting up and running the application locally.
 
 ## Setup
 
@@ -44,9 +44,6 @@ The repository includes GitHub Actions workflows for continuous integration and 
 Ensure you have the following secrets set up in your GitHub repository:
 
 - `STAGING_SERVER_IP`: IP address of the staging server.
-- `STAGING_SERVER_PORT`: SSH port for accessing the staging server.
-- `STAGING_SERVER_USERNAME`: Username for SSH authentication.
-- `STAGING_SERVER_PASSWORD`: Password for SSH authentication.
 
 ## Additional Documentation
 
