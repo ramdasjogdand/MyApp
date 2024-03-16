@@ -1,0 +1,9 @@
+version: '3.2'
+
+services:
+
+  nextjs:
+    image: ramdas1999/myapp-nextjs:latest
+    container_name: nextjs_app
+    ports:
+      - "3000:3000"
