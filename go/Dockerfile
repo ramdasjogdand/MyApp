@@ -1,5 +1,3 @@
-# Start from the official Golang image
-FROM golang:1.17-alpine as builder
 FROM golang:1.16-alpine
 
 WORKDIR /project/go-docker/
@@ -14,6 +12,3 @@ RUN go build -o /project/go-docker/build/myapp .
 
 EXPOSE 8080
 ENTRYPOINT [ "/project/go-docker/build/myapp" ]
-
-
-
