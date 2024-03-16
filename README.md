@@ -8,6 +8,8 @@ This repository contains the source code for each component and instructions for
 
 - Docker
 - Docker-Compose
+- GitHUb
+- Github-Action
 
 ### Running the Application
 
@@ -36,7 +38,7 @@ The repository includes GitHub Actions workflows for continuous integration and 
 
 ### Workflow Structure
 
-- **Build & Test**: The CI pipeline includes jobs to build and test each component individually.
+- **Build : The CI pipeline includes jobs to build each component individually.
 - **Deploy to Staging**: The CD pipeline deploys successful builds to a staging environment automatically.
 
 ### Secrets
@@ -51,13 +53,13 @@ Ensure you have the following secrets set up in your GitHub repository:
 
 - The Go component follows standard Go project structure.
 - Dependencies are managed using Go modules (`go.mod`).
-- Coding standards are enforced using GolangCI-Lint.
+
 
 ### Next.js Component
 
 - The Next.js component includes TypeScript support.
 - Dependencies are managed using npm.
-- Coding standards are enforced using ESLint and Prettier.
+
 
 ### WordPress Component
 
