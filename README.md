@@ -6,7 +6,8 @@ MyApp is a web application consisting of independent components developed in Go,
 
 ### Prerequisites
 
-- Docker: Ensure Docker is installed on your local machine. You can download and install Docker from [here](https://www.docker.com/products/docker-desktop).
+- Docker
+- Docker-Compose
 
 ### Running the Application
 
