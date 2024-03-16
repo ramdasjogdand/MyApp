@@ -20,7 +20,9 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker Image
-      run: docker build -t myapp-go .
+      run: |
+       cd go
+       docker build -t myapp-go .
 
   deploy:
     runs-on: ubuntu-latest
