@@ -47,7 +47,6 @@ jobs:
 
     - name: Deploy to Staging
       run: |
-             cd ..
              ls
              docker-compose up
            
