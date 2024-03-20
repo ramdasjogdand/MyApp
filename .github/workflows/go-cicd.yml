@@ -47,7 +47,8 @@ jobs:
 
     - name: Deploy to Staging
       run: |
-           cd go
-           docker-compose up
+           # cd go
+           # docker-compose up
+           pwd
 
            
